@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function Meme() {
+  function getMemeImage() {
+    console.log("clicked");
+  }
   return (
     <main>
       <form className="form">
@@ -24,7 +27,9 @@ export default function Meme() {
             ></input>
           </label>
         </div>
-        <button className="form--button">Get a new meme image 🖼</button>
+        <button onClick={getMemeImage} className="form--button">
+          Get a new meme image 🖼
+        </button>
       </form>
     </main>
   );
