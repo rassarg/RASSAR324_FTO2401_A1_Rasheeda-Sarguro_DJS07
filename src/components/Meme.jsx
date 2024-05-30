@@ -1,15 +1,17 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 // Meme component that holds state of meme and allMemes
 export default function Meme() {
-  const [meme, setMeme] = React.useState({
+  const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
-  const [allMemes, setAllMemes] = React.useState([]);
+  const [allMemes, setAllMemes] = useState([]);
 
   // useEffect hook for fetching meme data from API once component is mounted
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => setAllMemes(data.data.memes)); // Set the fetched meme data to the allMemes state
