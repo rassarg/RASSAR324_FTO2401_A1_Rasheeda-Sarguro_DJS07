@@ -1,5 +1,5 @@
 import React from "react";
-
+// Meme component that holds state of meme and allMemes
 export default function Meme() {
   const [meme, setMeme] = React.useState({
     topText: "",
@@ -8,32 +8,35 @@ export default function Meme() {
   });
   const [allMemes, setAllMemes] = React.useState([]);
 
+  // useEffect hook for fetching meme data from API once component is mounted
   React.useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
-      .then((data) => setAllMemes(data.data.memes));
+      .then((data) => setAllMemes(data.data.memes)); // Set the fetched meme data to the allMemes state
   }, []);
 
+  // Function to generate random meme image from allMemes array
   function getMemeImage() {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
     setMeme((prevMeme) => ({
       ...prevMeme,
-      randomImage: url,
+      randomImage: url, // Update the randomImage url property in the meme state
     }));
   }
-
+  // Function to handle changes in the input fields for meme generator
   function handleChange(event) {
     const { name, value } = event.target;
     setMeme((prevMeme) => ({
       ...prevMeme,
-      [name]: value,
+      [name]: value, // Updates the corresponding value (property) in the meme state
     }));
   }
-
+  // JSX for the Meme component
   return (
     <main>
       <div className="form">
+        {/* Top Text input */}
         <input
           type="text"
           placeholder="Top text"
@@ -42,6 +45,7 @@ export default function Meme() {
           value={meme.topText}
           onChange={handleChange}
         />
+        {/* Bottom Text input */}
         <input
           type="text"
           placeholder="Bottom text"
