@@ -1,6 +1,6 @@
 # DJS07 - Build a Meme Generator
 
-A simple meme generator a meme generator application that is built using React, focusing on managing the state within the app itself.
+A simple meme generator application that is built using React, focusing on managing the state within the app itself.
 
 ## Run
 
