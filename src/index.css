@@ -71,7 +71,7 @@ main {
 .meme--text {
   position: absolute;
   width: 80%;
-  text-align: center;
+  text-align: inherit;
   left: 50%;
   transform: translateX(-50%);
   margin: 15px 0;
